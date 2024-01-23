@@ -1,12 +1,12 @@
 import React from 'react';
 import Taskitem from "./Taskitem";
 
-const Tasklist = (props) => {
+const Tasklist = ({tasks, title, remove}) => {
     return (
         <div>
             <h1 className='name-title'>My tasks</h1>
-            {props.tasks.map(task =>
-                <Taskitem task={task} key = {task.id}/>
+            {tasks.map((task, index) =>
+                <Taskitem remove = {remove} number = {index + 1} task={task} key = {task.id}/>
             )}
         </div>
     );

@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import './styles/app.css';
 import Taskitem from "./components/Taskitem";
 import Tasklist from "./components/Tasklist";
 import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
+import TaskForm from "./components/TaskForm";
 
 function App() {
     const [tasks, setTasks] = useState([
@@ -18,16 +19,25 @@ function App() {
         {id: 9, title: 'Финансы', body: 'Проверить банковский счет на наличие новых транзакций'},
         {id: 10, title: 'Семья', body: 'Позвонить родителям и узнать как у них дела'}
     ])
+    // Добавление задачи
+    const createTask = (newTask) => {
+        setTasks([...tasks, newTask])
+
+    }
+    // Удаление задачи
+    const removeTask = (task) => {
+        setTasks(tasks.filter(p => p.id !== task.id))
+    }
     return (
-
         <div className="App">
-            <form>
-                <MyInput type="text" placeholder="Заголовок задачи"/>
-                <MyInput type="text" placeholder="Описание задачи"/>
-                <MyButton>Добавить задачу</MyButton>
-            </form>
+            <TaskForm create={createTask}/>
+            {tasks.length !== 0
+                ? <Tasklist tasks={tasks} remove={removeTask}/>
+                : <h1 style={{textAlign: 'center'}}>
+                    Записей нет
+                </h1>
+            }
 
-            <Tasklist tasks = {tasks}/>
         </div>
     );
 }

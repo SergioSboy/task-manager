@@ -1,17 +1,20 @@
 import React from 'react';
+import MyButton from "./UI/button/MyButton";
 
 const Taskitem = (props) => {
     return (
         <div className="task">
             <div className="task__content">
-                <strong>{props.task.id}. {props.task.title}</strong>
+                <strong>{props.number}. {props.task.title}</strong>
                 <div>
                     {props.task.body}
                 </div>
             </div>
             <div className="post__btn">
                 <div>
-                    <button>Delete</button>
+                    <MyButton onClick = {() => props.remove(props.task)}>
+                        Delete
+                    </MyButton>
                 </div>
             </div>
         </div>
