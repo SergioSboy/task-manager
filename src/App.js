@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import './styles/app.css';
 import Taskitem from "./components/Taskitem";
 import Tasklist from "./components/Tasklist";
+import MyButton from "./components/UI/button/MyButton";
+import MyInput from "./components/UI/input/MyInput";
 
 function App() {
     const [tasks, setTasks] = useState([
@@ -17,7 +19,14 @@ function App() {
         {id: 10, title: 'Семья', body: 'Позвонить родителям и узнать как у них дела'}
     ])
     return (
+
         <div className="App">
+            <form>
+                <MyInput type="text" placeholder="Заголовок задачи"/>
+                <MyInput type="text" placeholder="Описание задачи"/>
+                <MyButton>Добавить задачу</MyButton>
+            </form>
+
             <Tasklist tasks = {tasks}/>
         </div>
     );
