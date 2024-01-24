@@ -8,7 +8,7 @@ const TaskForm = ({create}) => {
     const addNewPost = (e) => {
         e.preventDefault()
         const newTask = {
-            ...task, id: Date.now()
+            ...task, id: Date.now(), active: false
         }
         create(newTask)
         setTask({title:'', body:''})

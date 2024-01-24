@@ -1,31 +1,31 @@
 import React from 'react';
 import MyButton from "./UI/button/MyButton";
+import MySelect from "./UI/select/MySelect";
+import MyCheckbox from "./UI/checkbox/MyCheckbox";
+
 
 
 const Taskitem = (props) => {
     return (
         <div className="task">
             <div className="task__content">
-                <strong>{props.task.title}</strong>
+                <strong>{props.tasks.title}</strong>
                 <div>
-                    {props.task.body}
+                    {props.tasks.body}
                 </div>
             </div>
             <div>
-                <select>
-                    <option value="value1">Выполнено</option>
-                    <option value="value1">В процессе</option>
-                </select>
+                <MyCheckbox tasks={props.tasks} onChange={props.onChange}/>
             </div>
             <div className="task__btn">
                 <div>
-                    <MyButton onClick={() => props.remove(props.task)}>
+                    <MyButton onClick={() => props.remove(props.tasks)}>
                         Delete
                     </MyButton>
                 </div>
             </div>
         </div>
-);
+    );
 };
 
 export default Taskitem;

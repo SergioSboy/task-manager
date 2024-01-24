@@ -1,0 +1,22 @@
+.select {
+    position: relative;
+    background-position: 95% 50%;
+    border-radius: 5px;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 30px;
+}
+
+.select>select {
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    line-height: 2.5;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
