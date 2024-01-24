@@ -5,6 +5,7 @@ import Tasklist from "./components/Tasklist";
 import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
 import TaskForm from "./components/TaskForm";
+import MySelect from "./components/UI/select/MySelect";
 
 function App() {
     const [tasks, setTasks] = useState([
@@ -20,6 +21,7 @@ function App() {
         {id: 10, title: 'Семья', body: 'Позвонить родителям и узнать как у них дела'}
     ])
     // Добавление задачи
+    const [selectedSort, setSelectedSort] = useState('')
     const createTask = (newTask) => {
         setTasks([...tasks, newTask])
 
@@ -28,9 +30,26 @@ function App() {
     const removeTask = (task) => {
         setTasks(tasks.filter(p => p.id !== task.id))
     }
+    // Сортировка массива с задачами для пользователя
+    const sortTasks = (sort) => {
+        setSelectedSort(sort)
+        setTasks([...tasks].sort((a,b) => a[sort].localeCompare(b[sort])))
+    }
     return (
         <div className="App">
             <TaskForm create={createTask}/>
+            <hr style={{margin: "15px 0", color: "blue"}}/>
+            <div>
+                <MySelect
+                    value={selectedSort}
+                    onChange={sortTasks}
+                    defaultValue="Сортировка"
+                    options={[
+                        {value:'title', name: 'По названию'},
+                        {value:'body', name:'По описанию'}
+                    ]}
+                />
+            </div>
             {tasks.length !== 0
                 ? <Tasklist tasks={tasks} remove={removeTask}/>
                 : <h1 style={{textAlign: 'center'}}>
