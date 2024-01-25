@@ -7,14 +7,15 @@ import MyCheckbox from "./UI/checkbox/MyCheckbox";
 const TaskItem = (props) => {
     return (
         <div className="task">
-            <div className="task__content">
-                <strong>{props.tasks.title}</strong>
-                <div>
-                    {props.tasks.body}
-                </div>
-            </div>
             <div>
-                <MyCheckbox tasks={props.tasks} onChange={props.onChange}/>
+                <div className="task__content">
+                    <strong>{props.tasks.title}</strong>
+                    <div>
+                        {props.tasks.body}
+                    </div>
+                </div>
+
+
             </div>
             <div className="task__btn">
                 <div>
@@ -23,7 +24,14 @@ const TaskItem = (props) => {
                     </MyButton>
                 </div>
             </div>
+            <div className="task__checkbox">
+                <div>
+                    <MyCheckbox tasks={props.tasks} onChange={props.onChange}/>
+                </div>
+            </div>
+
         </div>
+
     );
 };
 

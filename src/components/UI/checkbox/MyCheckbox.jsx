@@ -1,9 +1,21 @@
 import React from 'react';
-
+import classes from "./MyCheckbox.module.css";
 const MyCheckbox = ({tasks, onChange}) => {
     return (
         <div>
-            <input type="checkbox" checked={tasks.active} onChange={onChange} value={tasks.id}/>
+            <label className={classes.customCheckbox}>
+                <input
+                    type="checkbox"
+                    checked={tasks.active}
+                    onChange={onChange}
+                    value={tasks.id}
+                    id = "modern-checkbox"
+                    name="happy"
+
+                />
+                <span></span>
+            </label>
+
 
         </div>
 
