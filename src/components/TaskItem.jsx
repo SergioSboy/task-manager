@@ -1,11 +1,10 @@
 import React from 'react';
 import MyButton from "./UI/button/MyButton";
-import MySelect from "./UI/select/MySelect";
 import MyCheckbox from "./UI/checkbox/MyCheckbox";
 
 
 
-const Taskitem = (props) => {
+const TaskItem = (props) => {
     return (
         <div className="task">
             <div className="task__content">
@@ -28,4 +27,4 @@ const Taskitem = (props) => {
     );
 };
 
-export default Taskitem;
+export default TaskItem;
