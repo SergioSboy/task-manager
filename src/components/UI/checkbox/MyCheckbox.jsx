@@ -7,8 +7,7 @@ const MyCheckbox = ({tasks, onChange}) => {
                 <input
                     type="checkbox"
                     checked={tasks.active}
-                    onChange={onChange}
-                    value={tasks.id}
+                    onChange={() => onChange(tasks.id)}
                     id = "modern-checkbox"
                     name="happy"
 
