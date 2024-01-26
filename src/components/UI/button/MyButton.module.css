@@ -7,4 +7,10 @@
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
+    transition: color, transform 500ms ease;
+
+}
+
+.myBtn:hover{
+    transform: scale(1.1);
 }

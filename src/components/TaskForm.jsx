@@ -53,6 +53,8 @@ const TaskForm = ({create}) => {
             ...task, id: Date.now(), active: false, title:title, body:body
         }
         create(newTask)
+
+        // Обнуляем инпут
         setTask({title:'', body:''})
     }
 
